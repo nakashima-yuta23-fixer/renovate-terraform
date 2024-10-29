@@ -25,7 +25,7 @@ variable "region_code" {
   type        = string
   description = "Region Code"
   validation {
-    condition     = contains(["je", "we", "ea", "se", "ues"], var.region_code)
+    condition     = contains(["je", "we", "ea", "se", "eus"], var.region_code)
     error_message = "Invalid region_code: The value must be je, we, ea, or se."
   }
 }
