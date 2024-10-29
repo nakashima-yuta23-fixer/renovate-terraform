@@ -25,7 +25,7 @@ variable "region_code" {
   type        = string
   description = "Region Code"
   validation {
-    condition     = contains(["je", "we", "ea", "se"], var.region_code)
+    condition     = contains(["je", "we", "ea", "se", "ues"], var.region_code)
     error_message = "Invalid region_code: The value must be je, we, ea, or se."
   }
 }
@@ -35,7 +35,7 @@ variable "location" {
   type        = string
   description = "Location"
   validation {
-    condition     = contains(["japaneast", "westeurope", "eastasia", "southeastasia"], var.location)
+    condition     = contains(["japaneast", "westeurope", "eastasia", "southeastasia", "eastus"], var.location)
     error_message = "Invalid location: The value must be japaneast, westeurope, eastasia, or southeastasia."
   }
 }
