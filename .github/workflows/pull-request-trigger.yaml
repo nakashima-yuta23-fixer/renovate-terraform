@@ -69,7 +69,7 @@ jobs:
           echo "TERRAFORM_BACKEND_STORAGE_ACCOUNT_NAME=$(echo '${{ vars.TERRAFORM_BACKEND_CONFIG }}' | jq .terraformBackendStorageAccountName)" >> $GITHUB_ENV
           echo "TERRAFORM_BACKEND_CONTAINER_NAME=$(echo '${{ vars.TERRAFORM_BACKEND_CONFIG }}' | jq .terraformBackendContainerName)" >> $GITHUB_ENV
           echo "TF_VAR_product_name=${{ vars.TF_VAR_PRODUCT_NAME }}" >> $GITHUB_ENV
-          echo "TF_VAR_location=${{ vars.TF_VAR_LOACTION }}" >> $GITHUB_ENV
+          echo "TF_VAR_location=${{ vars.TF_VAR_LOCATION }}" >> $GITHUB_ENV
           echo "TF_VAR_env=${{ vars.TF_VAR_ENV }}" >> $GITHUB_ENV
           echo "TF_VAR_region_code=${{ vars.TF_VAR_REGION_CODE }}" >> $GITHUB_ENV
 
