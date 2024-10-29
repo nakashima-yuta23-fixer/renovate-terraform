@@ -5,10 +5,10 @@
 variable "product_name" {
   type        = string
   description = "Product Name"
-  # validation {
-  #   condition     = length(var.product_name) == 6
-  #   error_message = "Invalid product_name: The length must be 6."
-  # }
+  validation {
+    condition     = length(var.product_name) == 6
+    error_message = "Invalid product_name: The length must be 6."
+  }
 }
 
 variable "env" {
