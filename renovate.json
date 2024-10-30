@@ -2,5 +2,20 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "schedule": ["* 10-18 * * 1"],
+  "timezone": "Asia/Tokyo",
+  "reviewers": ["nakashima-yuta23-fixer"],
+  "labels": ["renovate"],
+  "prConcurrentLimit": 10,
+  "branchConcurrentLimit": 10,
+  "major": {
+    "stabilityDays": 10
+  },
+  "minor": {
+    "stabilityDays": 5
+  },
+  "patch": {
+    "stabilityDays": 2
+  }
 }
