@@ -1,2 +1,5 @@
 Set-EnvServicePrincipal.ps1
 **/local_version_check.hcl
+**/backend.tf
+**/provider.tf
+**/.terraform

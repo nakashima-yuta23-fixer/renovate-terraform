@@ -27,9 +27,16 @@ remote_state {
   }
 }
 
-generate "provider" {
-  path      = "provider.tf"
-  if_exists = "overwrite_terragrunt"
+# RenovateのProviderバージョンアップがhclファイルには対応していなかったので、1度目の
+# Terragrunt実行のみ下記設定でterraform.tfを作成する。以降、運用時にはterraform.tfは再作成
+# ・上書きしない。
+# RenovateがTerraformディレクトリ内のterraform.tfに対して、Providerのバージョンを自動で更新
+# する運用となる。
+# Renovateがhclファイル内の自動バージョン更新に対応すれば、Providerのバージョン更新をこのhcl
+# ファイル内で閉じる対応をすると可読性の向上が見込める。
+generate "version" {
+  path      = "versions.tf"
+  if_exists = "skip"
   contents  = <<EOF
 terraform {
   required_version = "${local.terraform_version}"
@@ -44,7 +51,13 @@ terraform {
     }
   }
 }
+EOF
+}
 
+generate "provider" {
+  path      = "provider.tf"
+  if_exists = "overwrite_terragrunt"
+  contents  = <<EOF
 provider "azurerm" {
   subscription_id = "${local.subscription_id}"
   tenant_id       = "${local.tenant_id}"
