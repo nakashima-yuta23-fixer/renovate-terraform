@@ -1,3 +1,5 @@
+terragrunt_version_constraint = "~> 0.68.4"
+
 locals {
   subscription_id              = get_env("ARM_SUBSCRIPTION_ID")
   tenant_id                    = get_env("ARM_TENANT_ID")
@@ -33,10 +35,12 @@ terraform {
   required_version = "${local.terraform_version}"
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm?ref=v4.1.0"
+      source = "hashicorp/azurerm"
+      version = "~> 4.1.0"
     }
     random = {
-      source = "hashicorp/random?ref=v3.6.2"
+      source = "hashicorp/random"
+      version = "~> 3.6.2"
     }
   }
 }
