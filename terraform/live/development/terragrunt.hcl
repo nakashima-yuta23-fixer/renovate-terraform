@@ -1,10 +1,9 @@
-terragrunt_version_constraint = "~> 0.68.4"
-
 locals {
   subscription_id              = get_env("ARM_SUBSCRIPTION_ID")
   tenant_id                    = get_env("ARM_TENANT_ID")
   client_id                    = get_env("ARM_CLIENT_ID")
   client_secret                = get_env("ARM_CLIENT_SECRET")
+  terraform_version            = get_env("TERRAFORM_VERSION")
   backend_resource_group_name  = get_env("TERRAFORM_BACKEND_RESOURCE_GROUP_NAME")
   backend_storage_account_name = get_env("TERRAFORM_BACKEND_STORAGE_ACCOUNT_NAME")
   backend_container_name       = get_env("TERRAFORM_BACKEND_CONTAINER_NAME")
@@ -31,14 +30,13 @@ generate "provider" {
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
 terraform {
+  required_version = "${local.terraform_version}"
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
-      version = "~> 4.1.0"
+      source = "hashicorp/azurerm?ref=v4.1.0"
     }
     random = {
-      source = "hashicorp/random"
-      version = "~> 3.6.2"
+      source = "hashicorp/random?ref=v3.6.2"
     }
   }
 }
