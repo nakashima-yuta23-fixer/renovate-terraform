@@ -9,7 +9,7 @@ on:
       - feature/*
       - renovate/*
     types:
-      - opend
+      - opened
       - synchronize
     paths:
       # ! Terraformのディレクトリ構成に従って変更する必要あり
