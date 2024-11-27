@@ -3,19 +3,25 @@
   "extends": [
     "config:recommended"
   ],
-  "schedule": ["* 10-18 * * 1"],
+  "schedule": [
+    "* 10-18 * * 1"
+  ],
   "timezone": "Asia/Tokyo",
-  "reviewers": ["nakashima-yuta23-fixer"],
-  "labels": ["renovate"],
+  "reviewers": [
+    "nakashima-yuta23-fixer"
+  ],
+  "labels": [
+    "renovate"
+  ],
   "prConcurrentLimit": 10,
   "branchConcurrentLimit": 10,
   "major": {
-    "stabilityDays": 10
+    "minimumReleaseAge": "10 days"
   },
   "minor": {
-    "stabilityDays": 5
+    "minimumReleaseAge": "5 days"
   },
   "patch": {
-    "stabilityDays": 2
+    "minimumReleaseAge": "2 days"
   }
 }
